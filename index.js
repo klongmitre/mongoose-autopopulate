@@ -21,6 +21,10 @@ module.exports = function(schema) {
     	options.maxDepth = options.autopopulate.maxDepth;
     }
 
+    if (options.autopopulate && options.autopopulate.options) {
+      options.options = options.autopopulate.options
+    }
+
     const depth = options._depth != null ? options._depth : 0;
 
     if (options.maxDepth > 0 && depth >= options.maxDepth) {
